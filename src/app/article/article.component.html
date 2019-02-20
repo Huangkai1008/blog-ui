@@ -1,0 +1,14 @@
+<h2>文章列表</h2>
+<ul class="articles">
+  <li *ngFor="let article of articles"
+      (click)="onSelect(article)"
+      [class.selected]="article === selectArticle">
+    <span class="badge">{{article.id}}</span> {{article.title}}
+  </li>
+</ul>
+<div *ngIf="selectArticle">
+  <h2>{{selectArticle.title}} 详情</h2>
+  <div *ngFor="let column of columns">
+    <span>{{column}}: </span>{{selectArticle[column]}}
+  </div>
+</div>
