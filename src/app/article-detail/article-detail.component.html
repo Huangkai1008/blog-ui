@@ -1,0 +1,7 @@
+<div *ngIf="article">
+  <h2>{{article.title}} 详情</h2>
+  <div *ngFor="let column of columns">
+  <span>{{column}}: </span>{{article[column]}}
+  </div>
+  <button (click)="goBack()">返回</button>
+</div>

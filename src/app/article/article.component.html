@@ -6,9 +6,4 @@
     <span class="badge">{{article.id}}</span> {{article.title}}
   </li>
 </ul>
-<div *ngIf="selectArticle">
-  <h2>{{selectArticle.title}} 详情</h2>
-  <div *ngFor="let column of columns">
-    <span>{{column}}: </span>{{selectArticle[column]}}
-  </div>
-</div>
+<app-article-detail [article]="selectArticle"></app-article-detail>
