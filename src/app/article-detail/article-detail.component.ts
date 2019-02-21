@@ -22,13 +22,16 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.route.snapshot.paramMap);
     this.getArticle();
   }
 
   getArticle(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.articleService.getArticle(id)
-      .subscribe(article => this.article = article);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.articleService.getArticle(Number(id))
+        .subscribe(article => this.article = article);
+    }
   }
 
   goBack(): void {
