@@ -34,4 +34,11 @@ export class ArticleService extends ErrorHandler {
         catchError(this.handlerError<Article>(`获得id为${id}的文章`))
       );
   }
+
+  addArticle(article: Article): Observable<Article> {
+    return this.http.post<Article>(this.articlesUrl, article)
+      .pipe(
+        catchError(this.handlerError<Article>(`创建文章`))
+      );
+  }
 }

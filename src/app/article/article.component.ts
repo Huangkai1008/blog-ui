@@ -26,6 +26,13 @@ export class ArticleComponent implements OnInit {
 
   }
 
+  add(title: string, content: string): void {
+    this.articleService.addArticle({title, content} as Article)
+      .subscribe(article => {
+        this.articles.push(article);
+      });
+  }
+
 
   ngOnInit() {
     this.getArticles();
